@@ -1,0 +1,41 @@
+import cv2
+import numpy  as np
+import os 
+import random 
+import pickle 
+t_d = []
+directory = "C:\\Users\\AYUSH MISHRA\\Desktop"
+categories = ["with_mask","without_mask"]
+for i in categories :
+        path = os.path.join(directory,i)
+        c_n = categories.index(i)
+        for p in os.listdir(path):
+
+            img = cv2.imread(os.path.join(path,p))
+            
+            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            img_resize= cv2.resize(gray,(224,224))
+            t_d.append([img_resize, c_n])
+            
+            
+random.shuffle(t_d)
+print(len(t_d))
+label = []
+feature = []
+for f in t_d  :
+    label.append(f)
+    feature.append(f) 
+label = label/255.0   
+labels = np.array(label).reshape((-1,224,224,3))
+features = np.array(feature)
+pickle_o = open("labels.pickle","wb")              
+pickle.dump(labels,pickle_o)
+pickle_o.close()
+pickle_o = open("features.pickle","wb")
+pickle.dump(features,pickle_o)
+pickle_o.close()
+print(labels.shape,features.shape) # shape of the training data
+
+
+
+
