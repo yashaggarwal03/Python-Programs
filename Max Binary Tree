@@ -1,0 +1,33 @@
+ Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
+
+    The root is the maximum number in the array.
+    The left subtree is the maximum tree constructed from left part subarray divided by the maximum number.
+    The right subtree is the maximum tree constructed from right part subarray divided by the maximum number.
+
+Construct the maximum tree by the given array and output the root node of this tree. 
+
+
+#Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> TreeNode:
+        
+        def buildTree(l,r):
+        
+            if l>r:
+                #print(l,r)
+                return None
+            
+            v = nums.index(max(nums[l:r+1]))
+            node = TreeNode(nums[v])
+            
+            node.left = buildTree(l,v-1)
+            node.right = buildTree(v+1,r)
+            
+            return node
+        
+        return buildTree(0,len(nums)-1)
