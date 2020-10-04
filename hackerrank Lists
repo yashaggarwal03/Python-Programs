@@ -1,0 +1,30 @@
+#https://www.facebook.com/sanidhya.bhardwaj.5/posts/1725764257576708
+#Subscribed by SANIDHYA BHARDWAJ
+
+if __name__ == '__main__':
+    N = int(input())
+    list1=[]
+    for i in range(N):
+        s = input().strip().split(' ')
+        cmd = s[0]
+        if len(s) == 2:
+            if cmd == "remove":
+                data = int(s[1])
+                list1.remove(data)
+            elif cmd == "append":
+                data = int(s[1])
+                list1.append(data)
+        elif len(s)== 3:
+            if cmd == "insert":
+                pos=int(s[1])
+                data=int(s[2])
+                list1.insert(pos,data)
+        elif len(s) == 1:
+            if cmd == "print":
+                print(list1)
+            elif cmd == "sort":
+                list1.sort()
+            elif cmd == "pop":
+                list1.pop()
+            elif cmd == "reverse":
+                list1.reverse()
