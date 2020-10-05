@@ -1,0 +1,14 @@
+#https://www.facebook.com/piyush.chandana.3/posts/1282062888823657
+#Subscribed by Piyush Chandana
+y=int(input("enter year"))
+if(y%4==0):
+    if(y%100==0):
+        if(y%400==0):
+            print(y,"is leapyear")
+        else:
+            print(y,"is not a lwap year")
+    else:
+        print(y,"is leap year")
+else:
+    print(y,"is not a leap year")
+            
