@@ -1,0 +1,9 @@
+#https://www.facebook.com/piyush.chandana.3/posts/1282062888823657
+#subscribed by Piyush Chandana
+a=int(input("enter value of a:"))
+b=int(input("enter value of b:"))
+temp=a
+a=b
+b=temp
+print("value of a after swapping is",a)
+print("value of b after swapping is",b)
