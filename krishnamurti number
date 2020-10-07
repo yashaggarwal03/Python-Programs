@@ -1,0 +1,20 @@
+#https://www.facebook.com/piyush.chandana.3/posts/1282062888823657
+#subscribed by Piyush Chandana
+num=int(input("Enter a number:"))
+n=num
+sum1=0
+while(num>0):
+        rem=num%10
+        x=rem
+        fact=1
+        while(x>0):
+            fact=fact*x
+            x=x-1
+        sum1=sum1+fact
+        num=num//10
+if(n==sum1):
+    print(n,"is a krishnamurti number")
+else:
+    print(n,"is not a krishnamurti number")
+    
+   
