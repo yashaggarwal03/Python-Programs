@@ -1,0 +1,7 @@
+import requests
+city = input("Enter your city name: ")
+// To Get API -> https://openweathermap.org/
+api_address = "http://api.openweathermap.org/data/2.5/weather?appid={YOUR-API-KEY}&q={}".format(city)
+json_data = requests.get(api_address).json()
+formatted_json = json_data['weather'][0]['main'] 'and temperature is ' json_data['main']['temp'] 
+print("The weather is {} in {}.").format(formatted_json, city)
