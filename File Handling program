@@ -1,0 +1,140 @@
+#https://www.facebook.com/piyush.chandana.3/posts/1282062888823657
+#Subscribed by Piyush Chandana
+#file handling
+'''
+--> filehandling is the process of creating text,sv,tsv,excel,files and writing
+    some content into file,delete content from the file update into file.
+'''
+#python provide different types of modes to access file
+'''
+1>write mode(w)
+2>read mode(r)
+3>append mode(a)
+4>write+mode(w+)
+5>read+mode(r+)
+6>append+mode(a+)
+7>write in binary(wb)
+8>read binary(rb)
+'''
+
+#w mode
+'''
+--> In write mode file can be created if file does not exist with specified file
+    name otherwise all the content of the file will be removed.
+--> We can write some thing into file.
+'''
+'''
+f=open("sample.text","w")
+print(f.write("This is my first line\n"))
+f.write("This is my first line.")
+f.write("\n")
+f.write("This is my second line")
+f.close()
+'''
+#read mode
+'''
+--> In this mode we can read content from file or represent content of file
+    by a variable name if file exist othherwise raise FileNotFoundError.
+'''
+'''
+f = open('sample.txt','r')
+print(f.read())
+f.seek(0)
+print(f.read(7))
+print(f.read())
+f.seek(21)
+print(f.read())
+f.close()
+'''
+'''
+f=open("sample.txt")
+data=f.readlines()
+print(data)
+for i in data:
+    print(i)
+f.close()    
+'''
+#access each word of the file
+'''
+f=open("sample.txt","r")
+data=f.read().split()
+print(data)
+for i in data:
+   print(i)
+f.close()   
+'''
+#3>append mode
+'''
+--> This mode provide environment to create
+    a flie with specified name if file does
+    not exist.
+--> In this mode we can write something at     
+    the last index of the file.
+'''
+'''
+f=open("demo.txt","a")
+f.write("Hello,how are you.")
+f.write("\nwow previous content is existing")
+f.close()
+'''
+# read+mode(r+)
+'''
+--> In this mode,we can write into file
+    as well as read from file.
+--> As we open file in r+ mode,cursor will be
+    at start index.
+--> When we write into file then existing characteris relaced by new character.
+'''
+'''
+f=open("demo.txt","r+")
+#print(f.read())
+f.write("this")
+f.seek(13)
+f.write("we")
+print(f.read())
+f.close()
+'''
+#write+mode(w+)
+'''
+--> all features of write mode will be inherited.
+--> additional features is that,we can read content of file.
+'''
+#creating new file
+'''
+f=open("demo1.txt","w+")
+f.close()
+'''
+
+#removing content of existing file
+'''
+with open("demo.txt","w+") as f:
+    f.write("ägain create first line.")
+    f.close()
+'''
+#6> append +mode
+'''
+-->all the features of append mode will be inherited
+-->reading content of file is additional feature.
+'''
+
+with open("demo.txt","a+") as f:
+    f.write("\nThis is second line")
+    f.seek(0)
+    print(f.read())
+    f.close()
+
+'''
+f=open("demo.txt")
+data=f.readlines()
+f.close()
+list1=[]
+for i,v in enumerate(data,start=1):
+    if(i==3):
+        v=v.replace("This","That")
+    list1.append(v)
+f=open("demo.txt","w")
+for i in list1:
+    f.write(i)
+f.close()    
+'''
+
