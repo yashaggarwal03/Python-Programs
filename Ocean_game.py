@@ -18,7 +18,7 @@ def odd(n):
     return n & 1 
  
 def color(a): 
-    return 'green' if odd(a) else 'blue' 
+    return 'green' if odd(a) else 'Pink' 
  
 class Map: 
  
